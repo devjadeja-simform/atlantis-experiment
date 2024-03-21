@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "atlantis-exp-tf-state"
-    key    = "exp/"
+    key    = "exp"
     region = "us-east-1"
   }
 
