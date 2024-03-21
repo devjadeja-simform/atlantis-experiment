@@ -16,13 +16,13 @@ terraform {
 }
 
 
-variable "num_random_numbers" {
+variable "entity_count" {
   type    = number
-  default = 1
+  default = 5
 }
 
-resource "random_integer" "example" {
-  count = var.num_random_numbers
+resource "random_integer" "one_time_passcode" {
+  count = var.entity_count
   keepers = {
     first = "${timestamp()}"
   }
@@ -31,5 +31,18 @@ resource "random_integer" "example" {
 }
 
 output "one_time_passcode" {
-  value = random_integer.example[*].result
+  value = random_integer.one_time_passcode[*].id
+}
+
+
+resource "random_pet" "container_alias" {
+  count = var.entity_count
+  keepers = {
+    first = "${timestamp()}"
+  }
+  length = 2
+}
+
+output "container_alias" {
+  value = random_pet.container_alias[*].id
 }
