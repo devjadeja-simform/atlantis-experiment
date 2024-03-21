@@ -1,11 +1,6 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "terraform-experimental-org"
-
-    workspaces {
-      name = "experimental"
-    }
+  backend "local" {
+    path = "terraform.tfstate"
   }
 
   required_providers {
