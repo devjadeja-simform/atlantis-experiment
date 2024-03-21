@@ -1,8 +1,12 @@
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "s3" {
+    bucket = "atlantis-exp-tf-state"
+    key    = "exp"
+    region = "us-east-1"
   }
 
+  required_version = "= 1.7.5"
+  
   required_providers {
     random = {
       source  = "hashicorp/random"
