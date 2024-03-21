@@ -18,7 +18,7 @@ terraform {
 
 variable "entity_count" {
   type    = number
-  default = 5
+  default = 2
 }
 
 resource "random_integer" "one_time_passcode" {
