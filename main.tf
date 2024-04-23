@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "atlantisexp-tfstate"
+    bucket = "atlantisexp-tfstate-1"
     key    = "atlantis/experiment/terraform.tfstate"
     region = "us-east-1"
   }
@@ -18,7 +18,7 @@ terraform {
 
 variable "entity_count" {
   type    = number
-  default = 2
+  default = 6
 }
 
 resource "random_integer" "one_time_passcode" {
